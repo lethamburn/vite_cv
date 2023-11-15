@@ -5,7 +5,7 @@ const template = () => {
   return `
     <section class="aboutme" id="aboutme">
       <h2>About me</h2>
-      <img src=${data.avatar} alt=${data.name}/>
+      <img class="avatar" src=${data.avatar} alt=${data.name}/>
       <ul>
       ${data.skills
         .map(
@@ -22,8 +22,12 @@ const template = () => {
   `;
 };
 
-const AboutMe = () => {
+export const AboutMe = () => {
   return template();
 };
 
-export default AboutMe;
+export const addAboutListeners = () => {
+  const avatar = document.querySelector(".avatar");
+
+  avatar.addEventListener("click", (e) => e.target.classList.toggle("rotate"));
+}
